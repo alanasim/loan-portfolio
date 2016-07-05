@@ -1,3 +1,74 @@
 // Place all the styles related to the loans controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  width:1000px;
+  height:100vh;
+  margin:auto;
+  font-family: Helvetica, sans-serif;
+}
+
+.table {
+  display: inline-block;
+  vertical-align: top;
+  width: 30%;
+  margin:10px;
+}
+
+#summary {
+  width: 95%;
+}
+
+#loan-summary {
+  width: 70%;
+  display: block;
+  margin: auto;
+}
+
+.tRow {
+  width:100%;
+  border: 1px solid darkgrey;
+}
+
+.headRow {
+  background-color: dimgrey;
+  color: white;
+  font-weight: bold;
+}
+
+.tTitle {
+  font-size:18pt;
+  font-weight: bold;
+}
+
+#expected-payments, #loan-summary {
+  .tCell {
+    width:31%;
+    display:inline-block;
+    text-align: center;
+    padding:4px 2px;
+  }
+}
+
+#payments, #late-payments {
+  .tCell {
+    width: calc(48% - 4px);
+    display: inline-block;
+    text-align: center;
+    padding: 4px 2px;
+  }
+  .subhead {
+    width: calc(100% - 4px);
+    background-color:lightgrey;
+  }
+}
+
+#summary {
+  .tCell {
+    width: calc(23% - 4px);
+    display: inline-block;
+    text-align: center;
+    padding: 4px 2px;
+  }
+}

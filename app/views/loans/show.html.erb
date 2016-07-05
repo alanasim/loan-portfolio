@@ -1,18 +1,95 @@
+<div class="container">
+<h1><%= @loan.name %></h1>
 
+<div id="summary" class="table">
+  <div class="tRow headRow">
+    <div class="tCell header">Total Loaned</div>
+    <div class="tCell header">Total Paid</div>
+    <div class="tCell header">Payments Made</div>
+    <div class="tCell header">Late Payments</div>
+  </div>
+  <div class="tRow">
+    <div class="tCell"><%= number_to_currency(@loan.total) %></div>
+    <div class="tCell"><%= number_to_currency(@loan.payments.sum(:amount)) %></div>
+    <div class="tCell"><%= @payments.length %></div>
+    <div class="tCell"><%= @loan.late_payments.length %></div>
+  </div>
+</div>
+<br>
+<div id="expected-payments" class="table">
+    <div class="tTitle">Expected Payments</div>
+  <div class="tRow headRow" >
+    <div class="tCell header">Date</div>
+    <div class="tCell header">Amount</div>
+    <div class="tCell header">Paid?</div>
+  </div>
 
-<table>
-  <tr>
-    Expected Payments
-  </tr>
-  <tr>
-    <th>Amount</th>
-    <th>Date</th>
-  </tr>
-
-  <% @loan.expected_payments.each do |payment| %>
-  <tr>
-    <td><%= number_to_currency(payment.amount) %></td>
-    <td><%= payment.expected_date %></td>
-  </tr>
+  <% @expected_payments.each do |payment| %>
+  <div class="tRow">
+    <div class="tCell"><%= payment.expected_date %></div>
+    <div class="tCell"><%= number_to_currency(payment.amount) %></div>
+    <div class="tCell">
+      <% if payment.paid == true %>
+        <span style="color:green;display:inline">&#10003</span>
+      <% else %>
+        <span style="color:red;display:inline">&#10005</span>
+      <% end %>
+    </div>
+  </div>
   <% end %>
-</table>
+</div>
+
+<div id="payments" class="table">
+  <div class="tTitle">Payments Made</div>
+  <div class="tRow headRow">
+    <div class="tCell header">Date</div>
+    <div class="tCell header">Amount</div>
+  </div>
+
+  <% @payments.each do |payment| %>
+    <div class="tRow">
+      <div class="tCell"><%= payment.date_paid %></div>
+      <div class="tCell"><%= number_to_currency(payment.amount) %></div>
+    </div>
+  <% end %>
+</div>
+
+<div id="late-payments" class="table">
+  <div class="tTitle">Late Payments</div>
+  <div class="tRow headRow">
+    <div class="tCell header">Date Expected</div>
+    <div class="tCell header">Date Paid</div>
+  </div>
+  <div class="tRow">
+    <div class="tCell subhead">10 Days</div>
+  </div>
+  <% @ten_days_late.each do |payment| %>
+  <div class="tRow">
+    <div class="tCell"><%= payment.expected_payment.expected_date %></div>
+    <div class="tCell"><%= payment.date_paid %></div>
+  </div>
+  <% end %>
+  <div class="tRow">
+    <div class="tCell subhead">20 Days</div>
+  </div>
+  <% @twenty_days_late.each do |payment| %>
+  <div class="tRow">
+    <div class="tCell"><%= payment.expected_payment.expected_date %></div>
+    <div class="tCell"><%= payment.date_paid %></div>
+  </div>
+  <% end %>
+  <div class="tRow">
+    <div class="tCell subhead">30+ Days</div>
+  </div>
+  <% @thirty_days_late.each do |payment| %>
+  <div class="tRow">
+    <div class="tCell"><%= payment.expected_payment.expected_date %></div>
+    <div class="tCell"><%= payment.date_paid %></div>
+  </div>
+  <% end %>
+</div>
+
+
+<%= link_to "Back to All Loans", loans_path %>
+
+</div>

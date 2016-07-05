@@ -1,7 +1,37 @@
+<div class="container">
+
 <h1>Portfolio</h1>
- 
- <% @loans.each do |loan| %>
 
-<h2> <%= link_to loan.name, loan %> </h2>
+<div id="summary" class="table">
+  <div class="tRow headRow">
+    <div class="tCell header">Total Loaned</div>
+    <div class="tCell header">Total Paid</div>
+    <div class="tCell header">Payments Made</div>
+    <div class="tCell header">Late Payments</div>
+  </div>
+  <div class="tRow">
+    <div class="tCell"><%= number_to_currency(total_loaned(@loans)) %></div>
+    <div class="tCell"><%= number_to_currency(total_paid(@loans)) %></div>
+    <div class="tCell"><%= total_payments(@loans) %></div>
+    <div class="tCell"><%= total_late(@loans) %></div>
+  </div>
+</div>
+<br>
+<h2>Loans</h2>
+<div id="loan-summary">
+  <div class="tRow headRow">
+    <div class="tCell header">Loan</div>
+    <div class="tCell header">Amount</div>
+    <div class="tCell header">Paid</div>
+  </div>
 
-<% end %>
+  <% @loans.each do |loan| %>
+    <div class="tRow">
+      <div class="tCell"><b><%= link_to loan.name, loan %></b></div>
+      <div class="tCell"><%= number_to_currency(loan.total) %></div>
+      <div class="tCell"><%= number_to_currency(loan.payments.sum(:amount)) %></div>
+    </div>
+  <% end %>
+</div>
+
+</div>
