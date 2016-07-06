@@ -27,10 +27,10 @@ Payment.create(loan: loan2, amount: 85, date_paid: Date.new(2016,3,25))
 
 Payment.create(loan: loan3, amount: 25, date_paid: Date.new(2015,11,15))
 Payment.create(loan: loan3, amount: 75, date_paid: Date.new(2015,12,15))
-Payment.create(loan: loan3, amount: 50, date_paid: Date.new(2015,1,20))
-Payment.create(loan: loan3, amount: 50, date_paid: Date.new(2015,2,28))
-Payment.create(loan: loan3, amount: 100, date_paid: Date.new(2015,3,15))
-Payment.create(loan: loan3, amount: 50, date_paid: Date.new(2015,6,7))
+Payment.create(loan: loan3, amount: 50, date_paid: Date.new(2016,1,20))
+Payment.create(loan: loan3, amount: 50, date_paid: Date.new(2016,2,28))
+Payment.create(loan: loan3, amount: 100, date_paid: Date.new(2016,3,15))
+Payment.create(loan: loan3, amount: 50, date_paid: Date.new(2016,6,7))
 
 
 

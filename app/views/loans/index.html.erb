@@ -23,13 +23,15 @@
     <div class="tCell header">Loan</div>
     <div class="tCell header">Amount</div>
     <div class="tCell header">Paid</div>
+    <div class="tCell header">Details</div>
   </div>
 
   <% @loans.each do |loan| %>
     <div class="tRow">
-      <div class="tCell"><b><%= link_to loan.name, loan %></b></div>
+      <div class="tCell"><b><%= loan.name %></b></div>
       <div class="tCell"><%= number_to_currency(loan.total) %></div>
       <div class="tCell"><%= number_to_currency(loan.payments.sum(:amount)) %></div>
+      <div class="tCell"><%= link_to "view details", loan %></div>
     </div>
   <% end %>
 </div>

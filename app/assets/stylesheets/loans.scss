@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .container {
-  width:1000px;
+  width:950px;
   height:100vh;
   margin:auto;
   font-family: Helvetica, sans-serif;
@@ -21,9 +21,9 @@
 }
 
 #loan-summary {
-  width: 70%;
+  width: 95%;
   display: block;
-  margin: auto;
+  margin: 10px;
 }
 
 .tRow {
@@ -42,9 +42,9 @@
   font-weight: bold;
 }
 
-#expected-payments, #loan-summary {
+#expected-payments {
   .tCell {
-    width:31%;
+    width: calc(32% - 4px);
     display:inline-block;
     text-align: center;
     padding:4px 2px;
@@ -64,7 +64,7 @@
   }
 }
 
-#summary {
+#summary, #loan-summary {
   .tCell {
     width: calc(23% - 4px);
     display: inline-block;
