@@ -2,44 +2,119 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$table-color: #fafafa;
+$tHeader-color: #767676;
+$old-color: #767676;
+
+body {
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  background-color:#f0f2f5;
+  color: #55595c;
+}
+
+h1 {
+  margin: 0;
+}
+
 .container {
+  background-color: white;
   width:950px;
-  height:100vh;
   margin:auto;
-  font-family: Helvetica, sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 10pt;
+  padding: 15px;
+  border-radius: 5px;
+  border: 3px solid #d9edf7;
 }
 
 .table {
   display: inline-block;
   vertical-align: top;
-  width: 30%;
-  margin:10px;
+  width: calc(32% - 3px);
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
+}
+
+.page-head {
+  background-color: #d9edf7;
+  position: relative;
+  top:-15px;
+  left:-15px;
+  width: calc(100%);
+  padding: 15px;
+}
+
+.section-header {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.button {
+  padding: 10px;
+  background-color: #3a87ad;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #2e6c8a;
+}
+.button-nav {
+  text-align: center;
+  padding: 20px;
 }
 
 #summary {
-  width: 95%;
+  width: calc(100% - 15px);
+  margin: 7.5px;
 }
 
 #loan-summary {
-  width: 95%;
+  width: calc(100% - 15px);
   display: block;
-  margin: 10px;
+  margin: 7.5px;
 }
 
 .tRow {
   width:100%;
-  border: 1px solid darkgrey;
+  border: 0px solid $table-color;
+  text-align: center;
 }
 
 .headRow {
-  background-color: dimgrey;
-  color: white;
+  background-color: $table-color;
+  border-bottom: 1px solid #e5e5e5;
+  color: $tHeader-color;
   font-weight: bold;
 }
 
+.top {
+  border-radius: 5px 5px 0 0;
+}
+
 .tTitle {
-  font-size:18pt;
-  font-weight: bold;
+  font-size:14pt;
+  font-weight: normal;
+  /*text-transform: uppercase;*/
+  text-align: center;
+  background-color: $table-color;
+  color: $tHeader-color;
+  padding: 7px;
+  border-radius: 5px 5px 0 0;
+}
+
+#payment-container {
+  width: calc(100% - 15px);
+  margin: 7.5px;
+  padding: 0px;
+}
+
+#expected-payments, #payments {
+  margin-right: 2%;
 }
 
 #expected-payments {
@@ -47,7 +122,7 @@
     width: calc(32% - 4px);
     display:inline-block;
     text-align: center;
-    padding:4px 2px;
+    padding:6px 2px;
   }
 }
 
@@ -56,11 +131,20 @@
     width: calc(48% - 4px);
     display: inline-block;
     text-align: center;
-    padding: 4px 2px;
+    padding: 6px 2px;
   }
   .subhead {
     width: calc(100% - 4px);
-    background-color:lightgrey;
+    
+  }
+  #ten {
+    background-color:#f7e3d9;
+  }
+  #twenty {
+    background-color:#f3d3c4;
+  }
+  #thirty {
+    background-color:#eec4af;
   }
 }
 
@@ -69,6 +153,6 @@
     width: calc(23% - 4px);
     display: inline-block;
     text-align: center;
-    padding: 4px 2px;
+    padding: 6px 2px;
   }
 }
